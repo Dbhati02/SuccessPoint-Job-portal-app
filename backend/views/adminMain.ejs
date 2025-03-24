@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuccessPoint - Your Trustable Job Finding App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-[#577BC1] mb-6">
+    
+    <!-- Home and Edit links aligned left and right -->
+    <div class="flex justify-between px-4 py-4">
+        <a 
+            href="/" 
+            class="flex items-center hover:text-blue-800 text-[#3B1C32] font-bold text-2xl"
+        >
+            <span class="mr-2"></span> Home
+        </a>
+    </div>
+    
+    <!-- Centered Profile Container with set width and height -->
+    <div class="flex justify-center items-center mt-8">
+        <div class="max-w-4xl w-full bg-white rounded-lg shadow-lg p-6">
+            <!-- Profile Header -->
+            <div class="flex items-center space-x-6">
+                <!-- Profile Image -->
+                <img src="<%= profilePhoto %>" alt="Profile Photo" class="w-24 h-24 rounded-full border-4 border-blue-500">
+                <!-- User Information -->
+                <div>
+                    <h1 class="text-2xl font-bold text-[#000957]">
+                        <%= fullname %>
+                    </h1>
+                </div>
+            </div>
+        
+            <!-- Profile Details -->
+            <div class="mt-6">
+                <h2 class="text-lg font-semibold text-[#EFB036] border-b-2 border-[#0A3981] pb-1">Contact Information</h2>
+                <ul class="mt-4 space-y-3">
+                    <li class="flex justify-between bg-blue-50 p-3 rounded-md shadow">
+                        <span class="font-medium text-gray-700">Email:</span>
+                        <span class="text-gray-800"><%= email %></span>
+                    </li>
+                    <li class="flex justify-between bg-blue-50 p-3 rounded-md shadow">
+                        <span class="font-medium text-gray-700">Phone:</span>
+                        <span class="text-gray-800"><%= phone %></span>
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Company Section -->
+            <% if (company) { %>
+                <div class="mt-6">
+                    <h2 class="text-lg font-semibold text-[#EFB036]  border-b-2 border-[#0A3981] pb-1">Company Details</h2>
+                    <div class="mt-4 space-y-2">
+                        <p><strong>Name:</strong> <%= company.name %></p>
+                        <p><strong>Website:</strong> <a href="<%= company.website %>" target="_blank" class="text-blue-600"><%= company.website %></a></p>
+                        <a class="text-blue-900 mt-2" href="/company/get/<%=company._id%>">Read More</a>
+                    </div>
+                </div>
+            <% } else { %>
+                <div class="mt-6">
+                    <h2 class="text-lg font-semibold text-[#EFB036]  border-b-2 border-[#0A3981] pb-1">Company</h2>
+                    <p class="mt-4 text-gray-700">No company associated.</p>
+                </div>
+            <% } %>
+
+            <!-- Company creating -->
+            <div class="flex justify-center items-center mt-6">
+                <a 
+                  href="/company/register" 
+                  class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg transition duration-300"
+                >
+                  Create Company
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+

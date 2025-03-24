@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuccessPoint - Your trustable job finding app </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50">
+    <header class="shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-blue-700 flex items-center">
+                <span class="mr-1 text-yellow-500">🏆</span> Success<span class="text-black">Point</span>
+            </h1>
+            
+            <!-- Navigation and User Image -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="/" class="hover:text-blue-500 text-gray-700 font-medium">Home</a>
+                <a href="/job/get" class="hover:text-blue-500 text-gray-700 font-medium">Jobs</a>
+                <a href="/user/register" class="bg-[#024CAA] hover:bg-blue-600 text-white font-semibold py-1 px-3 rounded shadow-md transition duration-300 ease-in-out">
+                    Signup
+                </a>
+                <a href="/user/login" class="bg-[#024CAA] hover:bg-blue-600 text-white font-semibold py-1 px-3 rounded shadow-md transition duration-300 ease-in-out">
+                    Login
+                </a>
+
+                <div class="relative group">
+                    <a href="/user/profile">
+                        <img src="../images/placeholder.png" alt="User Avatar"
+                            class="w-10 h-10 rounded-full border border-gray-300 object-cover">
+                    </a>
+                   
+                    <div
+                        class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-200">
+                        <ul class="py-2 text-sm text-gray-700">
+                            <li>
+                                <a href="/user/profile" class="block px-4 py-2 hover:bg-gray-100">View Profile</a>
+                            </li>
+                            <li>
+                                <a href="/user/profile/update" class="block px-4 py-2 hover:bg-gray-100">Edit Profile</a>
+                            </li>
+                            <li>
+                                <a href="/user/profile" class="block px-4 py-2 hover:bg-gray-100 ">Admin</a>
+                            </li>
+                            <li>
+                                <a href="/user/logout" class="block px-4 py-2 hover:bg-gray-100 text-red-500">Logout</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+               
+            </div>
+        </div>
+    </header>
+
+  
+</body>
+
+</html>

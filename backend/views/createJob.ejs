@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/header') %>
+</head>
+<body>
+  <div class="min-h-screen flex items-center justify-center bg-[#577BC1]">
+    <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
+        <% if (message) { %>
+            <div class="<%= success ? 'bg-green-100 border-green-500 text-green-800' : 'bg-red-100 border-red-500 text-red-800' %> border text-center px-4 py-2 rounded mb-4">
+              <%= message %>
+            </div>
+          <% } %>
+
+      <h2 class="text-2xl font-bold text-center text-[#001A6E] mb-6 ">Create a Company</h2>
+      <form action="/company/register" method="POST" class="space-y-4">
+        <!-- Full Name -->
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">Company Name</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            required 
+            class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+        
+        <!-- Email -->
+        <div>
+          <label for="description" class="block text-sm font-medium text-gray-700">Description of Company</label>
+          <input 
+            type="text" 
+            id="description" 
+            name="description"  
+            required 
+            class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+        
+        <!-- Phone -->
+        <div class="space-y-2">
+          <label for="website" class="block text-sm font-medium text-gray-700">Website</label>
+          <input 
+            name="website" 
+            id="website" 
+            type="text" 
+            aria-label="website"
+            required
+            class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          >
+        </div>
+        
+        <!-- Password -->
+        <div>
+          <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+          <input 
+            type="text" 
+            id="location" 
+            name="location" 
+            required 
+            class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+        
+       
+        
+        <!-- Submit Button -->
+        <div>
+          <button 
+            type="submit" 
+            class="w-full bg-[#0A3981] text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-900 focus:outline-none focus:ring focus:ring-blue-200 mt-5"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Auto-hide Flash Messages -->
+  <script>
+    setTimeout(() => {
+      const flashMessages = document.querySelectorAll('.bg-green-100, .bg-red-100');
+      flashMessages.forEach((message) => {
+        message.style.opacity = '0'; // Fade out
+        setTimeout(() => message.remove(), 500); // Remove after fade
+      });
+    }, 3000); // 3 seconds
+  </script>
+</body>
+</html>

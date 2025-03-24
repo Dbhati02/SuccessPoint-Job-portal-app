@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/header') %>
+</head>
+<body>
+  <div class="min-h-screen flex items-center justify-center bg-[#577BC1]">
+    <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
+      <% if (message) { %>
+        <div class="<%= success ? 'bg-green-100 border-green-500 text-green-800' : 'bg-red-100 border-red-500 text-red-800' %> border text-center px-4 py-2 rounded mb-4">
+          <%= message %>
+        </div>
+      <% } %>
+
+      <h2 class="text-2xl font-bold text-center text-[#001A6E] mb-6 ">Sign Up</h2>
+      <form action="/user/register" method="POST" class="space-y-4">
+        <!-- Full Name -->
+        <div>
+          <label for="fullname" class="block text-sm font-medium text-gray-700">Full Name</label>
+          <input 
+            type="text" 
+            id="fullname" 
+            name="fullname" 
+            required 
+            class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+        
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email"  
+            required 
+            class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+        
+        <!-- Phone -->
+        <div class="space-y-2">
+          <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+          <input 
+            name="phone" 
+            id="phone" 
+            type="text" 
+            aria-label="Phone"
+            required
+            class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          >
+        </div>
+        
+        <!-- Password -->
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            required 
+            class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+        
+        <!-- Role -->
+        <div>
+          <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
+          <select 
+            id="role" 
+            name="role" 
+            required 
+            class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          >
+            <option value="" disabled selected>Select a role</option>
+            <option value="recruiter">Recruiter</option>
+            <option value="student">Student</option>
+          </select>
+        </div>
+        
+        <!-- Submit Button -->
+        <div>
+          <button 
+            type="submit" 
+            class="w-full bg-[#0A3981] text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-900 focus:outline-none focus:ring focus:ring-blue-200 mt-5"
+          >
+            Sign Up
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Auto-hide Flash Messages -->
+  <script>
+    setTimeout(() => {
+      const flashMessages = document.querySelectorAll('.bg-green-100, .bg-red-100');
+      flashMessages.forEach((message) => {
+        message.style.opacity = '0'; // Fade out
+        setTimeout(() => message.remove(), 500); // Remove after fade
+      });
+    }, 3000); // 3 seconds
+  </script>
+</body>
+</html>
