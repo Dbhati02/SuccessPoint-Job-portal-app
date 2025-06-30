@@ -1,39 +1,43 @@
-<footer class="bg-[#577BC1] text-white py-6">
-    <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center">
-            <!-- Logo or brand name -->
-            <h2 class="text-2xl font-semibold">
-                <span class="text-yellow-500">🏆</span> Success<span class="text-black">Point</span>
-            </h2>
-            
-            <!-- Footer links -->
-            <div class="flex space-x-6">
-                <a href="/about" class="hover:text-yellow-500">About</a>
-                <a href="/contact" class="hover:text-yellow-500">Contact</a>
-                <a href="/privacy" class="hover:text-yellow-500">Privacy Policy</a>
-                <a href="/terms" class="hover:text-yellow-500">Terms & Conditions</a>
-            </div>
-        </div>
+<footer class="bg-[#577BC1] text-white py-6 w-full">
+  <div class="max-w-screen-xl mx-auto px-4 space-y-6">
+    
+    <!-- Top Section: Logo + Links -->
+    <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+      
+      <!-- Logo -->
+      <h2 class="text-2xl font-semibold text-center md:text-left">
+        <span class="text-yellow-500">🏆</span> Success<span class="text-black">Point</span>
+      </h2>
 
-        <div class="mt-4 flex justify-center space-x-6">
-            <!-- Social media icons -->
-            <a href="#" class="text-gray-400 hover:text-white">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </div>
-
-        <!-- Copyright notice -->
-        <div class="text-center text-sm text-[#FAB12F] mt-6">
-            <p>&copy; <%= new Date().getFullYear() %> SuccessPoint. All rights reserved.</p>
-        </div>
+      <!-- Navigation Links -->
+      <div class="flex flex-wrap justify-center md:justify-end gap-4 text-sm sm:text-base">
+        <a href="/" class="hover:text-yellow-400 transition">About</a>
+        <a href="/" class="hover:text-yellow-400 transition">Contact</a>
+        <a href="/" class="hover:text-yellow-400 transition">Privacy Policy</a>
+        <a href="/" class="hover:text-yellow-400 transition">Terms & Conditions</a>
+      </div>
     </div>
+
+    <!-- Social Icons -->
+    <div class="flex justify-center space-x-6 text-lg">
+      <a href="#" class="text-gray-300 hover:text-white transition">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#" class="text-gray-300 hover:text-white transition">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="text-gray-300 hover:text-white transition">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="#" class="text-gray-300 hover:text-white transition">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center text-sm text-[#FAB12F]">
+      <p>&copy; <%= new Date().getFullYear() %> SuccessPoint. All rights reserved.</p>
+    </div>
+
+  </div>
 </footer>

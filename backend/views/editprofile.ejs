@@ -1,114 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuccessPoint - Your Trustable Job Finding App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        textarea:focus,
-        input:focus {
-            transform: scale(1.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        textarea,
-        input {
-            resize: none; /* Disable resizing */
-        }
-        textarea {
-            height: 120px; /* Set consistent height */
-            overflow: auto; /* Allow scroll for long content */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SuccessPoint - Your Trustable Job Finding App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    textarea:focus,
+    input:focus {
+      transform: scale(1.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    textarea,
+    input {
+      resize: none;
+    }
+    textarea {
+      height: 120px;
+      overflow: auto;
+    }
+    body {
+      overflow-x: hidden;
+    }
+  </style>
 </head>
-<body class="min-h-screen bg-[#577BC1]">
-    <a 
-        href="/" 
-        class="flex items-center hover:text-blue-800 text-[#000957] font-bold text-2xl p-4"
-    >
-        <span class="mr-2">⬅</span> Home
-    </a>
+<body class="min-h-screen bg-[#577BC1] overflow-x-hidden">
 
-    <div class="flex justify-center items-center mt-8">
-        <form 
-            method="post" 
-            action="/user/profile/update" 
-            class="bg-white p-8 rounded-lg shadow-md space-y-6 w-full max-w-lg"
+  <!-- Navigation -->
+  <a 
+    href="/" 
+    class="flex items-center hover:text-blue-800 text-[#000957] font-bold text-2xl px-4 pt-4"
+  >
+    <span class="mr-2">⬅</span> Home
+  </a>
+
+  <!-- Form Section -->
+  <div class="flex justify-center items-center px-4 py-8">
+    <form 
+      method="post" 
+      action="/user/profile/update" 
+      class="bg-white w-full max-w-lg p-6 sm:p-8 rounded-lg shadow-md space-y-6"
+    >
+      <% if (message) { %>
+        <div class="<%= success ? 'bg-green-100 border-green-500 text-green-800' : 'bg-red-100 border-red-500 text-red-800' %> border text-center px-4 py-2 rounded mb-4">
+          <%= message %>
+        </div>
+      <% } %>
+
+      <h1 class="text-2xl sm:text-3xl font-bold text-[#000957] text-center">Update Your Information</h1>
+
+      <div class="space-y-2">
+        <label for="fullname" class="block text-sm font-medium text-gray-700">Full Name</label>
+        <input 
+          name="fullname" 
+          id="fullname" 
+          type="text" 
+          aria-label="Full Name"
+          class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+      </div>
+
+      <div class="space-y-2">
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input 
+          name="email" 
+          id="email" 
+          type="email" 
+          aria-label="Email"
+          class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+      </div>
+
+      <div class="space-y-2">
+        <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+        <input 
+          name="phone" 
+          id="phone" 
+          type="text" 
+          aria-label="Phone"
+          class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+      </div>
+
+      <div class="space-y-2">
+        <label for="bio" class="block text-sm font-medium text-gray-700">Bio</label>
+        <textarea 
+          name="bio" 
+          id="bio" 
+          aria-label="Bio"
+          class="w-full px-1 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        ></textarea>
+      </div>
+
+      <div class="space-y-2">
+        <label for="skills" class="block text-sm font-medium text-gray-700">Skills</label>
+        <textarea 
+          name="skills" 
+          id="skills" 
+          aria-label="Skills"
+          class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        ></textarea>
+      </div>
+
+      <div class="flex justify-center">
+        <button 
+          type="submit" 
+          class="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
         >
-            <% if (message) { %>
-                <div class="<%= success ? 'bg-green-100 border-green-500 text-green-800' : 'bg-red-100 border-red-500 text-red-800' %> border text-center px-4 py-2 rounded mb-4">
-                    <%= message %>
-                </div>
-            <% } %>
-            <h1 class="text-3xl font-bold text-[#000957] text-center">Update Your Information</h1>
-            <div class="space-y-2">
-                <label for="fullname" class="block text-sm font-medium text-gray-700">Full Name</label>
-                <input 
-                    name="fullname" 
-                    id="fullname" 
-                    type="text" 
-                    aria-label="Full Name"
-                    class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-            </div>
-            <div class="space-y-2">
-                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input 
-                    name="email" 
-                    id="email" 
-                    type="email" 
-                    aria-label="Email"
-                    class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-            </div>
-            <div class="space-y-2">
-                <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
-                <input 
-                    name="phone" 
-                    id="phone" 
-                    type="text" 
-                    aria-label="Phone"
-                    class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-            </div>
-            <div class="space-y-2">
-                <label for="bio" class="block text-sm font-medium text-gray-700">Bio</label>
-                <textarea 
-                    name="bio" 
-                    id="bio" 
-                    aria-label="Bio"
-                    class="w-full px-1 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                ></textarea>
-            </div>
-            <div class="space-y-2">
-                <label for="skills" class="block text-sm font-medium text-gray-700">Skills</label>
-                <textarea 
-                    name="skills" 
-                    id="skills" 
-                    aria-label="Skills"
-                    class="w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                ></textarea>
-            </div>
-            <div class="flex justify-center">
-                <button 
-                    type="submit" 
-                    class="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-                >
-                    Update Information
-                </button>
-            </div>
-        </form>
-    </div>
-    <!-- Auto-hide Flash Messages -->
-    <script>
-        setTimeout(() => {
-            const flashMessages = document.querySelectorAll('.bg-green-100, .bg-red-100');
-            flashMessages.forEach((message) => {
-                message.style.opacity = '0'; // Fade out
-                setTimeout(() => message.remove(), 500); // Remove after fade
-            });
-        }, 3000); // 3 seconds
-    </script>  
+          Update Information
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Flash Message Auto-Hide -->
+  <script>
+    setTimeout(() => {
+      const flashMessages = document.querySelectorAll('.bg-green-100, .bg-red-100');
+      flashMessages.forEach(message => {
+        message.style.opacity = '0';
+        setTimeout(() => message.remove(), 500);
+      });
+    }, 3000);
+  </script>
 </body>
 </html>
-

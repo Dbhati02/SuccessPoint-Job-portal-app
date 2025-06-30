@@ -4,7 +4,7 @@
   <%- include('./partials/header') %>
 </head>
 <body>
-  <div class="min-h-screen flex items-center justify-center bg-[#577BC1]">
+  <div class="min-h-screen flex items-center justify-center bg-[#577BC1] px-4">
     <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
       <% if (message) { %>
         <div class="<%= success ? 'bg-green-100 border-green-500 text-green-800' : 'bg-red-100 border-red-500 text-red-800' %> border text-center px-4 py-2 rounded mb-4">
@@ -96,10 +96,10 @@
     setTimeout(() => {
       const flashMessages = document.querySelectorAll('.bg-green-100, .bg-red-100');
       flashMessages.forEach((message) => {
-        message.style.opacity = '0'; // Fade out
-        setTimeout(() => message.remove(), 500); // Remove after fade
+        message.style.opacity = '0';
+        setTimeout(() => message.remove(), 500);
       });
-    }, 3000); // 3 seconds
+    }, 3000);
   </script>
 </body>
 </html>

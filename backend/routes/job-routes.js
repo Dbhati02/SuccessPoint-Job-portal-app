@@ -10,8 +10,8 @@ router.get("/post",isAuthenticated,(req,res)=>{
     res.render("createJob")
 });
 router.route("/get").get(isAuthenticated,getAllJobs);
-router.route("/get/:id").post(isAuthenticated,getJobById);
 
+router.route("/get/:id").post(isAuthenticated,getJobById);
 
 //to get a job by name
 router.get("/getjobbyname", async (req, res) => {

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header') %>
+<body class="min-h-screen flex items-center justify-centerbg-[#577BC1] font-[Quicksand] text-gray-700">
+
+  <div class=" mt-10 bg-blue-200 shadow-xl rounded-2xl p-10 text-center max-w-md mx-auto">
+    <img src="/images/lock.png" alt="Unauthorized" class="w-24 h-24 mx-auto mb-4" />
+    <h1 class="text-2xl font-bold text-red-600 mb-2">Access Denied</h1>
+    <p class="text-gray-600"><%= message %></p>
+    <a href="user/login" class="mt-6 inline-block bg-red-500 text-white px-5 py-2 rounded-full hover:bg-red-600">
+      🔒 Login Now
+    </a>
+  </div>
+
+</body>
+</html>

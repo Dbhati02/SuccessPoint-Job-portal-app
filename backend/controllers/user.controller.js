@@ -120,15 +120,12 @@ const register = async (req, res) => {
     }
 };
 
- const logout = async (req,res) =>{
-    try{
-        return res.status(200).cookie("token","",{maxAge:0}).json({
-            message:"Logged out successfully.",
-            success:true
-        })
-    }catch(error){
+ 
+ const logout = async (req, res) => {
+    try {
+        return res.status(200).clearCookie("token").redirect("/");
+    } catch (error) {
         console.log(error.message);
-        
     }
 }
 

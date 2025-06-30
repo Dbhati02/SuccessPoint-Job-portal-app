@@ -130,5 +130,5 @@ module.exports = {postJob, getAllJobs, getJobById, getAdminJobs};
 
 
 
-git remote add origin https://github.com/Dbhati02/SuccessPoint-Job-portal-app.git
+// git remote add origin https://github.com/Dbhati02/SuccessPoint-Job-portal-app.git
 
