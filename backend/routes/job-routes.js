@@ -1,14 +1,42 @@
 const express = require('express');
 const isAuthenticated = require("../middlewares/isAuthenticated");
 const Job = require("../models/job-model")
+const User = require("../models/user-model")
 const {postJob, getAllJobs, getJobById, getAdminJobs} = require("../controllers/job.controller");
 
 const router = express.Router();
 
 router.route("/post").post(isAuthenticated,postJob);
-router.get("/post",isAuthenticated,(req,res)=>{
-    res.render("createJob")
+router.get("/post", isAuthenticated, async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    const companyId = user?.profile?.company;
+
+    if (!companyId) {
+      return res.render("createJob", {
+        message: "Please create a company first!",
+        success: false,
+        companyId: null
+      });
+    }
+
+    res.render("createJob", {
+      message: null,
+      success: null,
+      companyId
+    });
+  } catch (error) {
+    console.log("Error loading createJob:", error.message);
+    res.status(500).render("createJob", {
+      message: "Server error",
+      success: false,
+      companyId: null
+    });
+  }
 });
+
+
+
 router.route("/get").get(isAuthenticated,getAllJobs);
 
 router.route("/get/:id").post(isAuthenticated,getJobById);

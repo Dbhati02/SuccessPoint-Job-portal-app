@@ -7,34 +7,41 @@ const postJob = async (req, res) => {
         const userId = req.id;
 
         if (!title || !description || !requirements || !salary || !location || !jobType || !experienceLevel || !position || !companyId) {
-            return res.status(400).json({
-                message: "Something is missing.",
-                success: false
+            return res.render("createJob", {
+                message: "All fields are required!",
+                success: false,
+                companyId
             });
         }
+
         const job = await Job.create({
             title,
             description,
-            requirements:requirements.split(","),
-            salary:Number(salary),
+            requirements: requirements.split(",").map(r => r.trim()),
+            salary: Number(salary),
             location,
             jobType,
-            experienceLevel,
-            position,
-            company:companyId,
-            created_by:userId
-        })
+            experienceLevel: Number(experienceLevel),
+            position: Number(position),
+            company: companyId,
+            created_by: userId
+        });
 
-        return res.status(201).json({
-            message:"New job created successfully.",
-            job,
-            success:true
-        })
+        return res.render("createJob", {
+            message: "New job created successfully!",
+            success: true,
+            companyId
+        });
+
     } catch (error) {
-console.log(error.message);
-
+        console.log("Error posting job:", error.message);
+        return res.render("createJob", {
+            message: "Error while creating the job. Try again!",
+            success: false,
+            companyId: req.body.companyId
+        });
     }
-}
+};
 
 //for the students 
 const getAllJobs = async (req, res) => {

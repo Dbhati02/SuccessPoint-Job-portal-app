@@ -34,6 +34,10 @@ const registerCompany = async (req, res) => {
         });
 
         await company.save();
+         // Update user profile to reference this company
+        await User.findByIdAndUpdate(req.user._id, {
+            $set: { "profile.company": company._id }
+        });
 
         // Send success response
         return res.render('registerCompany', {
